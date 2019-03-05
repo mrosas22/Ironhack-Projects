@@ -1,0 +1,14 @@
+<h1>Please create <b>Routine</b></h1>
+<form action="/plans/{{plan._id}}/add-routine" method="post" enctype="multipart/form-data">
+    <label for="session">Session Number:</label>
+	<input type="number" name="session">
+    <label for="education">Education:</label>
+    <textarea name="education" id="" cols="30" rows="10"></textarea>
+    <label for="tips">Tips:</label>
+	<textarea name="tips" id="" cols="30" rows="10"></textarea><br>
+    <label>Image</label>
+    <input type="file" name="routinePlan">
+	<button type="submit">ADD</button>
+</form>
+<a href="/user/admin">Return</a>
+
