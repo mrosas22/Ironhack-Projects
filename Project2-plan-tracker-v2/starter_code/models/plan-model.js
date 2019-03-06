@@ -3,10 +3,11 @@ const Schema = mongoose.Schema;
 
 const planSchema = new Schema({
     name        : { type: String },
-    events      : { type: Number},
     description : { type: String },
     imagePlan   : { type: String },
-    routines   : [{ type: Schema.Types.ObjectId, ref: "Routine" }],
+    sessions    : [{ type: Schema.Types.ObjectId, ref: "Session" }],
+    reviews     : [{ type: Schema.Types.ObjectId, ref: "Feedback" }]
+    
 }, {
     timestamps: true
 });

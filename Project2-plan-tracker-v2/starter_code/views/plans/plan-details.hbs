@@ -7,13 +7,15 @@
 <br>
 <h4>Description: </h4>
 <p>{{plan.description}}</p>
-<form action="/plans/{{plan._id}}/add-routine">
-    <button type="submit">CREATE SESSION</button><br>
-</form>
-{{#if plan.routines}}
-  <a href="/routine/search?session=1">Session One</a>
-{{/if}}
 
+{{#if user.isAdmin}}
+  <form action="/plans/{{plan._id}}/add-session">
+    <button type="submit">Create Session</button>
+  </form>
+{{/if}}
+{{#each plan.sessions}}
+  <a href="/session/{{this._id}}/{{this.session}}">Session {{this.session}}</a><br>
+{{/each}}
  
 
 

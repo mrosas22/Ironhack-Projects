@@ -10,7 +10,7 @@ const userSchema = new Schema({
   weight   : {type: Number, require: false},
   role     : {type: String, enum: ['GUEST', 'EDITOR', 'ADMIN'], default: 'GUEST'},
   plan     :[{ type: Schema.Types.ObjectId, ref: 'Plan' }],
-  // routines : [{ type: Schema.Types.ObjectId, ref: "Routine" }],
+  routines : [{ type: Schema.Types.ObjectId, ref: "Routine" }],
 }, {
   timestamps: true
 });

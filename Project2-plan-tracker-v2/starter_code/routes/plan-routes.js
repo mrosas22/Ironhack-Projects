@@ -6,6 +6,7 @@ const uploadCloud    = require('../config/upload-setup/cloudinary')
 // Require mongoose models
 const User           = require('../models/user-model');
 const Plan           = require('../models/plan-model');
+const Session        = require('../models/session-model');
 const Routine        = require('../models/routine-model');
 //create functions that will check against different roles automatically
 const checkEditor = checkRoles('EDITOR');
@@ -47,50 +48,56 @@ router.get('/:id', ensureAuthenticated, (req, res, next) => {
     if (!/^[0-9a-fA-F]{24}$/.test(planId)) { 
       return res.status(404).render('not-found');
     }
-    Plan.findById(req.params.id)
+    Plan.findById(req.params.id).populate('sessions')
       .then(plan => {
         if (!plan) {
             return res.status(404).render('not-found');
         }
-        res.render('plans/plan-details', { plan })
+        if(req.user.role === "ADMIN"){
+          req.user.isAdmin = true;
+        }
+        res.render('plans/plan-details', { plan, user:req.user })
       })
       .catch (error => next (error))
 });
-//Create Session =====> //localhost:3000/plans/5c7d6793bd73534bc561eade/add-routine?
-router.get("/:id/add-routine", checkAdmin, (req, res) => {
-  Plan.findById(req.params.id)
-      .then((plan) =>{
-        console.log('the plan is: ', plan)
-        res.render("routines/routine-add", { user: req.user, plan });
-      })
-      .catch((error) =>{
-        console.log(error)
-      })
+//Create Session =====> //localhost:3000/plans/5c7d6793bd73534bc561eade/add-session
+router.get('/:id/add-session', ensureAuthenticated, uploadCloud.single('imageSession'),(req, res) =>{
+  Plan.findById(req.params.id).populate('sessions')
+    .then(plan =>{
+      res.render('session/session-add', {plan});
+    })
+    .catch(error => console.log('Error while finding the plan: ', error))
 });
 
 //POST ====> /plans/5c7d6793bd73534bc561eade/add-routine
-router.post('/:id/add-routine', uploadCloud.single('routinePlan'), (req, res, next) => {
-  const { session, education, tips  } = req.body;
-  Routine.create({
-    session     : session,
-    education   : education,
-    tips        : tips,
-    routinePlan : req.file.secure_url,
-    owner       : req.user._id,
-  })
-    .then(newRoutine =>{
+router.post('/:id/add-session', ensureAuthenticated, uploadCloud.single('imageSession'),(req, res) =>{
+  const newSession = {
+    session      : req.body.session,
+    education     : req.body.education,
+    tips          : req.body.tips,
+    imageSession  : req.file.secure_url,
+    water         : req.body.water,
+    calories      : req.body.calories,
+    sleep         : req.body.sleep,
+    exercise      : req.body.exercise,
+    
+    }
+  // console.log(' we are to see: ', req.body );
+  Session.create(newSession)
+    .then(thenewSession =>{
       Plan.findById(req.params.id)
-      .then(foundPlan => {
-        foundPlan.routines.push(newRoutine._id);
+      .then(foundPlan =>{
+        foundPlan.sessions.push(thenewSession._id);
         foundPlan.save()
           .then(() => {
-            res.redirect(`/plans/${foundPlan._id}`)
+            res.redirect(`/plans/${req.params.id}`);
+            // res.redirect('/user/profile')
           })
-          .catch(err => next(err));
-          })
-      .catch(err => next(err));
+          .catch(err => console.log('Error while saving the user: ', err));
+      })
+      .catch(err => console.log('Error while saving the user: ', err));
     })
-    .catch(err => next(err));
+    .catch(err => console.log('Error while saving the user: ', err));
 });
 
 
@@ -106,7 +113,7 @@ router.get('/:id/update', checkAdmin, (req, res, next) => {
       })
 });
 
-//POST /plans/5c7450030cac6b2d948e91e4/update
+//POST =====> /plans/5c7450030cac6b2d948e91e4/update
 router.post('/:id/update', uploadCloud.single('imagePlan'), (req, res, next) => {
     const {name, description} = req.body;
     // console.log('the image file is: ', req.file)
