@@ -12,7 +12,18 @@ router.get('/session/:id/1', (req, res, next) =>{
   Session.findById(req.params.id).populate('feedbacks')
   .populate({path:'feedbacks', populate: {path: 'user'}})
     .then(foundSession =>{
-      res.render('session/session-details', {session: foundSession, user: req.user})
+      //Go through all the feedbacks and display only those made by current user
+      Promise.all(foundSession.feedbacks.filter(singleReview =>{
+        if(singleReview.user._id.equals(req.user._id)){
+          singleReview.canBeChanged = true;
+          console.log('The feedback is: ', singleReview.canBeChanged)
+        }
+        return singleReview; 
+      }))
+        .then(() =>{
+          res.render('session/session-details', {session: foundSession, user: req.user})
+        })
+        .catch(err => next (err))
     })
     .catch( error => console.log('Error while finding the routine: ', error))
 })

@@ -8,8 +8,9 @@ const Feedback = require('../models/feedback-model');
 router.post('/:sessionId/add-review', (req, res, next) => {
   console.log('Review: ', req.params.sessionId);
   const newComment = {
-    user     : req.user._id,
-    comment  : req.body.comment,
+    user        : req.user._id,
+    comment     : req.body.comment,
+    canBeChanged: false
   }
   Feedback.create(newComment)
     .then(theNewComment => {
@@ -18,7 +19,7 @@ router.post('/:sessionId/add-review', (req, res, next) => {
                 foundSession.feedbacks.push(theNewComment._id);
                 foundSession.save()
                     .then(() => {
-                        res.redirect(`/${foundSession.name}/${foundSession._id}`)
+                        res.redirect(`/session/${foundSession._id}/${foundSession.session}`)
                     })
                     .catch(err => next(err));
             })
@@ -27,12 +28,15 @@ router.post('/:sessionId/add-review', (req, res, next) => {
     .catch(err => next(err));
 })
 
+// Edit review =====> //localhost:3000/feedback/5c7fadbfc02a479242cc3f5c/edit
 
-// delete review
+
+// Delete review =====> //localhost:3000/feedback/5c7f4bad3b4e738de439a313/delete
 router.post('/:id/delete', (req, res, next) => {
+    console.log('Find feedback id: ', req.params.id)
   Feedback.findByIdAndDelete(req.params.id) 
     .then(() => {
-        Session.findOne({'feedback': req.params.id})
+        Session.findOne({'feedbacks': req.params.id})
             .then(foundSession => {
                 for(let i=0; i< foundSession.feedbacks.length; i++ ){
                     console.log(foundSession.feedbacks[i]._id.equals(req.params.id))
@@ -42,7 +46,7 @@ router.post('/:id/delete', (req, res, next) => {
                 }
                 foundSession.save()
                     .then(() => {
-                        res.redirect(`/session/${foundSession_id}/${foundSession.session}`)
+                        res.redirect(`/session/${foundSession._id}/${foundSession.session}`)
                     })
                     .catch(err => next(err))
                     })
