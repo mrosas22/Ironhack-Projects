@@ -10,8 +10,9 @@
 <form action="/plans/{{plan._id}}/add-routine">
     <button type="submit">CREATE SESSION</button><br>
 </form>
-<a href="/routine/search?session=1">Session One</a>
-
+{{#if plan.routines}}
+  <a href="/routine/search?session=1">Session One</a>
+{{/if}}
 
  
 
