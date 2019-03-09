@@ -33,12 +33,20 @@
 </form>
 
 {{!-- {{> feedbackRoutine}} --}}
+<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="/21-day-summer-slim-down-challenge/#respond" style="display:none;">Cancel Comment</a></small>
+    </h3>			
+    <form action="/feedback/{{session._id}}/add-review" method="post" id="commentform" class="comment-form" >
+        <p class="comment-form-comment"><textarea id="comment" placeholder="Add your comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>
+     
+        <p class="form-submit">
+          <input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> 
+          <input type="hidden" name="comment_post_ID" value="393718" id="comment_post_ID">
+          <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+        </p>	
+    </form>
+</div>
 
-<h4>Add Feedback</h4>
-<form action="/feedback/{{session._id}}/add-review" method="POST">   
-    <textarea name="comment" id="" cols="30" rows="10"></textarea><br>
-    <button type="submit">Add</button>
-</form>
 
 
 {{#if session.feedbacks}}
@@ -55,3 +63,5 @@
       {{/if}}
     {{/each}}
 {{/if}}
+
+
