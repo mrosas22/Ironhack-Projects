@@ -1,5 +1,23 @@
 {{!-- progressRoutine.hbs --}}
-<section>
+<h3 id="add-char"> Post a new character </h3>
+<form action="/{{plan.name}}/{{plan._id}}/add-routine" method="post" id="character-form">
+  <div>
+    <label for="the-name-input"> Water: </label>
+    <input type="text" name="water" class="the-name">
+  </div>
+  <div>
+    <label for="the-occupation-input"> Calories: </label>
+    <input type="text" name="calories" class="the-occupation">
+  </div>
+  <div>
+    <label for="the-weapon-input"> Sleep: </label>
+    <input type="text" name="sleep" class="the-weapon">
+  </div>
+  <button> Submit </button>
+</form>
+
+
+{{!-- <section>
   <form action="/{{plan.name}}/{{plan._id}}/add-routine" method="post" > 
 
     <label for="">Water : 8 glasses</label>
@@ -16,4 +34,4 @@
 
     <button type="submit">Save Changes</button>
   </form>
-</section>
+</section> --}}

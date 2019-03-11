@@ -8,22 +8,59 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-  {{#if currentUser}}
-    <form action='/logout' method="post">
-      <button type='submit'>Logout </button>
-    </form>
-    <a href="/user/admin">Admin page</a>
-    <a href="/user/profile">Profile page</a>
-  {{else}}
-    <a href="/signup">Signup</a>
-    <a href="/login">Login</a>
-    <a href="/google-login">Login with Google</a>
-    <a href="/plans">List of Plans</a>
-  {{/if}}
-
-  </nav>
+  <div class="fh5co-loader"></div>
+	
+	<div id="page">
+	<nav class="fh5co-nav" role="navigation">
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						{{!-- <div id="fh5co-logo"><a href="index.html">Air<span>.</span></a></div> --}}
+            <img src="https://www.bodyworktreatments.com/wp-content/uploads/2017/01/BTM-250.png" alt="Bodywork Treatments &amp; Therapeutic Massage" id="logo" data-height-percentage="93" data-actual-width="99" data-actual-height="104">
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li class="active"><a href="/">Home</a></li>
+							<li><a href="portfolio.html">Gallery</a></li>
+							<li class="has-dropdown">
+								<a href="/plans">Services</a>
+								<ul class="dropdown">
+									<li><a href="#">Therapautic Sessions</a></li>
+									<li><a href="#">Fitness Sessions</a></li>
+								</ul>
+							</li>
+							<li><a href="/about">About Us</a></li>
+							<li><a href="/contact">Contact Us</a></li>
+              {{#if currentUser}}
+              <li class="has-dropdown">
+								<a href="/user/profile">Profile</a>
+								<ul class="dropdown">
+									<li><a href="/user/admin">Admin Page</a></li>
+									<li><a href="/user/profile">Profile Page</a></li>
+								</ul>
+							</li>
+               <form action='/logout' method="post">
+                <button type='submit'>Logout </button>
+              </form>
+              {{else}}
+							<li class="btn-cta"><a href="/login"><span>Login</span></a></li>
+              <li class="btn-cta"><a href="/signup"><span>Signup</span></a></li>
+              {{/if}}
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>
   {{{body}}}
 
   <script src="/javascripts/script.js"></script>
+  {{!-- <script src="/javascripts/main.js"></script> --}}
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="/javascripts/jquery.waypoints.min.js"></script>
+  <script src="/javascripts/jquery.flexslider-min.js"></script>
+  <script src="/javascripts/main.js"></script>
 </body>
 </html>
