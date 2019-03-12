@@ -10,6 +10,7 @@ passport.use(new LocalStrategy({
   },(email, password, next) => {
     User.findOne({ email })
     .then(userFromDb => {
+      console.log('here')
       if(!userFromDb){
         return next(null, false, { message: 'Incorrect email!' })
       }

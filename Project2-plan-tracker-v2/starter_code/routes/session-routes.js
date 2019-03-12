@@ -28,37 +28,6 @@ router.get('/session/:id/1', (req, res, next) =>{
     .catch( error => console.log('Error while finding the routine: ', error))
 })
 
-//User Update form with DOM manipulation
-// const theNames = document.getElementsByClassName("the-name");
-// const theOccupations = document.getElementsByClassName("the-occupation");
-// const theWeapons = document.getElementsByClassName("the-weapon");
-// document.getElementById("character-form").onsubmit = function(event) {
-//     event.preventDefault();
-   
-//      router.post('/session/:id/1', ensureAuthenticated,(req, res) =>{
-//       const newRoutine = {
-//         water    : theNames[0].value,
-//         calories : theOccupations[0].value,
-//         sleep    : theWeapons[0].value
-//       };
-//       Routine.create(newRoutine)
-//         .then((thenewRoutine) =>{
-//           const { water, calories, sleep} = thenewRoutine;
-//           const newRoutineHtml =  `
-//           <li>
-//              <p> Water: ${water} </p>
-//              <p> Calories: ${calories} </p>
-//              <p> Sleep: ${sleep} </p>
-//           </li>
-//           `;
-//           document.getElementById("characters-list").innerHTML += newRoutineHtml;
-//           document.getElementById("character-form").reset();
-//         })
-//         .catch(error => {
-//           console.log("Error is: ", error);
-//       })
-//      })
-// }   
 
 // User update routine =====> POST /routine/5c7eb3ba952c9337f865d955/1
 router.post('/session/:id/1', ensureAuthenticated,(req, res) =>{
@@ -91,6 +60,7 @@ router.post('/session/:id/1', ensureAuthenticated,(req, res) =>{
         console.log(error);
       })
 });
+
 
 //Routine details ====> //localhost:3000/routine/5c7eb3ba952c9337f865d955/1
 router.get('/session/:id/2', (req, res, next) =>{

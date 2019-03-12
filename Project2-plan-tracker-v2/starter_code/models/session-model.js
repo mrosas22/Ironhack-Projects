@@ -6,11 +6,7 @@ const sessionSchema = new Schema({
   education     : { type: String },
   tips          : { type: String },
   imageSession  : { type: String },
-  calories      : { type: Number, default: 0 },
-  water         : { type: Number, default: 0 },
-  sleep         : { type: Number, default: 0 },
-  exercise      : { type: Number, default: 0 },
-  member        : { type: Schema.Types.ObjectId, ref: "User" },
+  owner         : { type: Schema.Types.ObjectId, ref: "User" },
   feedbacks     :[{ type: Schema.Types.ObjectId, ref: "Feedback" }]
   }, {
     timestamps: true

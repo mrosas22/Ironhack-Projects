@@ -1,37 +1,23 @@
 {{!-- progressRoutine.hbs --}}
-<h3 id="add-char"> Post a new character </h3>
-<form action="/{{plan.name}}/{{plan._id}}/add-routine" method="post" id="character-form">
-  <div>
-    <label for="the-name-input"> Water: </label>
-    <input type="text" name="water" class="the-name">
-  </div>
-  <div>
-    <label for="the-occupation-input"> Calories: </label>
-    <input type="text" name="calories" class="the-occupation">
-  </div>
-  <div>
-    <label for="the-weapon-input"> Sleep: </label>
-    <input type="text" name="sleep" class="the-weapon">
-  </div>
-  <button> Submit </button>
-</form>
 
 
-{{!-- <section>
-  <form action="/{{plan.name}}/{{plan._id}}/add-routine" method="post" > 
+<section>
+  <form action="/session/{{session._id}}/{{session.session}}" method="post" > 
+    <label for="">Session</label>
+    <input type="Number" name="session" id="" value={{session.session}}><br>
 
     <label for="">Water : 8 glasses</label>
-    <input type="Number" name="water" id="" value="{{user.plan.routine.water}}">
+    <input type="Number" name="water" id="" >
 
     <label for="">Calories : 2000 cal</label>
-    <input type="Number" name="calories" id="" value="{{user.plan.routine.calories}}">
+    <input type="Number" name="calories" id="">
 
     <label for="">Sleep : 8 hours/day</label>
-    <input type="Number" name="sleep" id="" value="{{user.plan.routine.sleep}}">
+    <input type="Number" name="sleep" id="">
 
     <label for="">Exercise : 60 minutes</label>
-    <input type="Number" name="exercise" id="" value="{{user.plan.routine.exercise}}">
+    <input type="Number" name="exercise" id="">
 
     <button type="submit">Save Changes</button>
   </form>
-</section> --}}
+</section>
