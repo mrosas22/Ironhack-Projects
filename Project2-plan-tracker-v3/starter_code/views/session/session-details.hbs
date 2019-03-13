@@ -1,0 +1,53 @@
+
+<h1>Welcome to session {{session.session}}</h1>
+{{#if session.imageSession}}
+  <img src="{{session.imageSession}}" alt="Workout Motivation" width="300">
+{{else}}
+  <p>This session doesn't have an image</p>
+{{/if}}
+<br>
+<h4>Education: </h4>
+<p>{{session.education}}</p> <br>
+<h4>Tips: </h4>
+<p>{{session.tips}}</p> <br>
+
+<h4>Progress: <b>{{session.session}}</b></h4>
+
+{{> progressRoutine}}
+<button type="submit" id="getButton">Progress Chart</button>
+<!-- the data we get from the API will be populated in here:   -->
+<canvas id="updateForm"></canvas>
+
+{{!-- {{> feedbackRoutine}} --}}
+<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="/21-day-summer-slim-down-challenge/#respond" style="display:none;">Cancel Comment</a></small>
+    </h3>			
+    <form action="/feedback/{{session._id}}/add-review" method="post" id="commentform" class="comment-form" >
+        <p class="comment-form-comment"><textarea id="comment" placeholder="Add your comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>
+     
+        <p class="form-submit">
+          <input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> 
+          <input type="hidden" name="comment_post_ID" value="393718" id="comment_post_ID">
+          <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+        </p>	
+    </form>
+</div>
+
+
+
+{{#if session.feedbacks}}
+    <h4>Feedback: </h3>
+    {{#each session.feedbacks}}
+        <p> <b>{{ this.user.fullName }} said: </b> {{ this.comment }} </p>
+        {{#if this.canBeChanged}}
+          <form action="/feedback/{{this._id}}/edit" method="POST">
+            <button type="submit">EDIT</button>
+          </form>
+          <form action="/feedback/{{this._id}}/delete" method="POST">
+            <button type="submit">DELETE</button>
+          </form>
+      {{/if}}
+    {{/each}}
+{{/if}}
+
+

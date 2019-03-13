@@ -1,0 +1,23 @@
+{{!-- progressRoutine.hbs --}}
+
+
+<section>
+  <form action="/session/{{session._id}}/{{session.session}}" method="post" id="character-form" > 
+    <label for="">Session</label>
+    <input type="Number" name="session" id="" value={{session.session}}><br>
+
+    <label for="">Water : 8 glasses</label>
+    <input type="Number" name="water" id="" >
+
+    <label for="">Calories : 2000 cal</label>
+    <input type="Number" name="calories" id="">
+
+    <label for="">Sleep : 8 hours/day</label>
+    <input type="Number" name="sleep" id="">
+
+    <label for="">Exercise : 60 minutes</label>
+    <input type="Number" name="exercise" id="">
+    <button type="submit">Save Changes</button>
+    {{!-- <button type="submit" id="getButton">Save Changes</button> --}}
+  </form>
+</section>

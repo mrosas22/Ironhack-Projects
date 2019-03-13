@@ -1,0 +1,21 @@
+<h4>Add Feedback</h4>
+<form action="/feedback/{{session._id}}/add-review" method="POST">   
+    <textarea name="comment" id="" cols="30" rows="10"></textarea><br>
+    <button type="submit">Add</button>
+</form>
+
+
+{{#if session.feedbacks}}
+    <h4>Feedback: </h3>
+    {{#each session.feedbacks}}
+        <p> <b>{{ this.user.fullName }} said: </b> {{ this.comment }} </p>
+        {{!-- {{#if this.canBeChanged}} --}}
+          <form action="/feedback/{{this._id}}" method="POST">
+            <button type="submit">EDIT</button>
+          </form>
+          <form action="/feedback/{{this._id}}" method="POST">
+            <button type="submit">DELETE</button>
+          </form>
+      {{!-- {{/if}} --}}
+    {{/each}}
+{{/if}}
