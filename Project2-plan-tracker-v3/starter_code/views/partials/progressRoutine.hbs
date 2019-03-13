@@ -1,8 +1,6 @@
 {{!-- progressRoutine.hbs --}}
-
-
 <section>
-  <form action="/session/{{session._id}}/{{session.session}}" method="post" id="character-form" > 
+  <form action="/session/{{session._id}}/{{session.session}}" method="post" id="routine-form" > 
     <label for="">Session</label>
     <input type="Number" name="session" id="" value={{session.session}}><br>
 
@@ -18,6 +16,5 @@
     <label for="">Exercise : 60 minutes</label>
     <input type="Number" name="exercise" id="">
     <button type="submit">Save Changes</button>
-    {{!-- <button type="submit" id="getButton">Save Changes</button> --}}
   </form>
 </section>

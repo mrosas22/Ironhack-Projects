@@ -1,4 +1,3 @@
-
 <h1>Welcome to session {{session.session}}</h1>
 {{#if session.imageSession}}
   <img src="{{session.imageSession}}" alt="Workout Motivation" width="300">
@@ -13,10 +12,31 @@
 
 <h4>Progress: <b>{{session.session}}</b></h4>
 
-{{> progressRoutine}}
+{{!-- {{> progressRoutine}} --}}
+<section>
+  <form action="/session/{{session._id}}/{{session.session}}" method="post" id="routine-form" > 
+    <label for="">Session</label>
+    <input type="Number" name="session" id="" value={{session.session}}><br>
+
+    <label for="">Water : 8 glasses</label>
+    <input type="Number" name="water" id="" >
+
+    <label for="">Calories : 2000 cal</label>
+    <input type="Number" name="calories" id="">
+
+    <label for="">Sleep : 8 hours/day</label>
+    <input type="Number" name="sleep" id="">
+
+    <label for="">Exercise : 60 minutes</label>
+    <input type="Number" name="exercise" id="">
+    <button type="submit">Save Changes</button>
+  </form>
+</section>
+
+
 <button type="submit" id="getButton">Progress Chart</button>
 <!-- the data we get from the API will be populated in here:   -->
-<canvas id="updateForm"></canvas>
+<canvas id="routine-chart"></canvas>
 
 {{!-- {{> feedbackRoutine}} --}}
 <div id="respond" class="comment-respond">
