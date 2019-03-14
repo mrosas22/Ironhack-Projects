@@ -1,10 +1,14 @@
+//Hide Form after submit
+// document.getElementById('routine-button').onclick = function(event){
+//   document.getElementById('routine-form').style.display = "none";
+// }
 
 const routineInfo  = axios.create({
   baseURL: 'http://localhost:3000/api/',
 }); 
  
- //Get Data Form API =====> http://localhost:3000/api/data
- document.getElementById("getButton").onclick = function(event){
+//Get Data Form API =====> http://localhost:3000/api/data
+document.getElementById("getButton").onclick = function(event){
   routineInfo.get('data')
     .then(response => {
         // The following lane hides the form to create a new character when we are updating one
@@ -35,3 +39,53 @@ const routineInfo  = axios.create({
       });
   });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//================Send Updates to API ========================
+// const theCalories = document.getElementsByClassName("the-calories");
+// const theWater    = document.getElementsByClassName("the-water");
+// const theSleep    = document.getElementsByClassName("the-sleep");
+// const theExercise = document.getElementsByClassName("the-exercise");
+// document.getElementById("routine-form").onsubmit = function(event) {
+//   event.preventDefault();
+ 
+//   const routineInfo = {
+//     calories : theCalories[0].value,
+//     water    : theWater[0].value,
+//     sleep    : theSleep[0].value,
+//     exercise : theExercise[0].value
+//   };
+ 
+//    axios.post('http://localhost:3000/api/data', routineInfo)
+//      .then(response => {
+//          const { calories, water, sleep, exercise } = response.data;
+//          const newRoutineHtml = `
+//          <li>
+//            <p> Calories: ${calories} </p>
+//            <p> Water: ${water} </p>
+//            <p> Sleep: ${sleep} </p>
+//            <p> Exercise: ${exercise} </p>
+//          </li>
+//          `;
+//          document.getElementById("characters-list").innerHTML += newRoutineHtml;
+//         // Clear the form after submitting:
+//         document.getElementById("routine-form").reset();
+// })
+//      .catch(error => {
+//          console.log("Error is: ", error);
+//      })
+// }

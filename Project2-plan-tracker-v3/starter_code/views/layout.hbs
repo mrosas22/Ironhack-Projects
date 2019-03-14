@@ -28,8 +28,8 @@
 							<li class="has-dropdown">
 								<a href="/plans">Services</a>
 								<ul class="dropdown">
-									<li><a href="#">Therapautic Sessions</a></li>
-									<li><a href="#">Fitness Sessions</a></li>
+									<li><a href="/plans">Therapautic Sessions</a></li>
+									<li><a href="/plans">Fitness Sessions</a></li>
 								</ul>
 							</li>
 							<li><a href="/about">About Us</a></li>
@@ -47,9 +47,6 @@
                   </li>
 								</ul>
 							</li>
-               <form action='/logout' method="post">
-                <button type='submit' class="btn btn-default btn-lg">Logout </button>
-              </form>
               {{else}}
 							<li class="btn-cta"><a href="/login"><span>Login</span></a></li>
               <li class="btn-cta"><a href="/signup"><span>Signup</span></a></li>
@@ -62,7 +59,37 @@
 		</div>
 	</nav>
   {{{body}}}
+	<footer id="fh5co-footer" role="contentinfo">
+		<div class="container">
+			<div class="row row-pb-md">
+				<div class="col-md-4 fh5co-widget">
+					<h4>BTM</h4>
+					<p>At <strong>Bodywork Treatments and Therapeutic Massage</strong>, you will find yourself as part of a unique universe.</p>
+				</div>
+				<div class="col-md-2 col-md-push-1 fh5co-widget">
+					<h4>Links</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Portfolio</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">About</a></li>
+					</ul>
+				</div>
 
+
+				<div class="col-md-4 col-md-push-1 fh5co-widget">
+					<h4>Contact Information</h4>
+					<ul class="fh5co-footer-links">
+						<li>111611 City Hall, Suite 28 <br> Promenade, Miramar, FL 33025</li>
+						<li><a href="tel://17866197013">+ 17866197013</a></li>
+						<li><a href="mailto:hermancrespolmt@gmail.com">hermancrespolmt@gmail.com</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+	</footer>
   <script src="/javascripts/script.js"></script>
   <script src="/javascripts/jquery.min.js"></script>
   <script src="/javascripts/jquery.waypoints.min.js"></script>

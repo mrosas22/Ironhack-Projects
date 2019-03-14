@@ -14,25 +14,25 @@
 
 {{!-- {{> progressRoutine}} --}}
 <section>
-  <form action="/session/{{session._id}}/{{session.session}}" method="post" id="routine-form" > 
+  <form action="/session/{{session._id}}/{{session.session}}" method="post" id='routine-form' > 
     <label for="">Session</label>
     <input type="Number" name="session" id="" value={{session.session}}><br>
 
     <label for="">Water : 8 glasses</label>
-    <input type="Number" name="water" id="" >
+    <input type="Number" name="water" class="the-calories" >
 
     <label for="">Calories : 2000 cal</label>
-    <input type="Number" name="calories" id="">
+    <input type="Number" name="calories" class="the-water">
 
     <label for="">Sleep : 8 hours/day</label>
-    <input type="Number" name="sleep" id="">
+    <input type="Number" name="sleep" class="the-sleep">
 
     <label for="">Exercise : 60 minutes</label>
-    <input type="Number" name="exercise" id="">
-    <button type="submit">Save Changes</button>
+    <input type="Number" name="exercise" class="the-exercise">
+    <button type="submit" id="routine-button">Save Changes</button>
   </form>
 </section>
-
+<ul id="characters-list"></ul>
 
 <button type="submit" id="getButton">Progress Chart</button>
 <!-- the data we get from the API will be populated in here:   -->
