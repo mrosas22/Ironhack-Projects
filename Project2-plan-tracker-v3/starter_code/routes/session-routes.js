@@ -7,30 +7,48 @@ const Session       = require('../models/session-model');
 const Routine        = require('../models/routine-model');
 const uploadCloud    = require('../config/upload-setup/cloudinary');
 
+//Session 1 =====> http://localhost:3000/session/5c882b1528cb013d255b8b7e/?1
+// router.get('/session/:id/search', (req, res, next) =>{
+//   User.findById(req.user._id).populate('routines')
+//   .then(userInfo =>{
+//     console.log('The req query is: ', req.query.session)
+//   })
+// })
 //Routine details ====> //localhost:3000/routine/5c7eb3ba952c9337f865d955/1
-router.get('/session/:id/1', (req, res, next) =>{
-  Session.findById(req.params.id).populate('feedbacks')
-  .populate({path:'feedbacks', populate: {path: 'user'}})
-    .then(foundSession =>{
+router.get('/session/:id/search', (req, res, next) =>{
+  User.findById(req.user._id).populate('routines')
+  .then(userInfo =>{
+    let showForm = true;
+
+    Session.findById(req.params.id).populate('feedbacks')
+    .populate({path:'feedbacks', populate: {path: 'user'}})
+      .then(foundSession =>{
       //Go through all the feedbacks and display only those made by current user
-      Promise.all(foundSession.feedbacks.filter(singleReview =>{
-        if(singleReview.user._id.equals(req.user._id)){
-          singleReview.canBeChanged = true;
-          console.log('The feedback is: ', singleReview.canBeChanged)
-        }
-        return singleReview; 
-      }))
+        Promise.all(foundSession.feedbacks.filter(singleReview =>{
+          if(singleReview.user._id.equals(req.user._id)){
+            singleReview.canBeChanged = true;
+          }
+          return singleReview; 
+        }))
         .then(() =>{
-          Session.find()
-            .then(allSessions =>{
-              res.render('session/session-details', {session: foundSession, user: req.user, sessions: allSessions})
-            })
-            .catch(err => next (err))
-          // res.render('session/session-details', {session: foundSession, user: req.user})
+          for(let i=0; i < userInfo.routines.length; i++) {
+            console.log('User info: ', typeof userInfo.routines[i].session, typeof req.query.session)
+            if(userInfo.routines[i].session === +req.query.session){
+              console.log('The req query session is: ', typeof req.query.session)
+              showForm = false;
+              res.render('session/session-details', {session: foundSession, user: req.user, showForm})
+              return
+            }
+          };
+            console.log('The form is false: ', showForm)
+            res.render('session/session-details', {session: foundSession, user: req.user, showForm})
         })
         .catch(err => next (err))
     })
     .catch( error => console.log('Error while finding the routine: ', error))
+  })
+  .catch(err => next (err))
+  
 })
 
 

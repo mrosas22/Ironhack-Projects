@@ -13,6 +13,7 @@
 <h4>Progress: <b>{{session.session}}</b></h4>
 
 {{!-- {{> progressRoutine}} --}}
+{{#if showForm}}
 <section>
   <form action="/session/{{session._id}}/{{session.session}}" method="post" id='routine-form' > 
     <label for="">Session</label>
@@ -32,7 +33,8 @@
     <button type="submit" id="routine-button">Save Changes</button>
   </form>
 </section>
-
+{{/if}}
+<p>The form to show is {{showForm}}</p>
 <button type="submit" id="getButton">Progress Chart</button>
 <!-- the data we get from the API will be populated in here:   -->
 <canvas id="routine-chart"></canvas>
@@ -51,7 +53,6 @@
         </p>	
     </form>
 </div>
-
 
 
 {{#if session.feedbacks}}
