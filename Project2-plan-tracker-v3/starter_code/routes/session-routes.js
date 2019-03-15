@@ -21,7 +21,12 @@ router.get('/session/:id/1', (req, res, next) =>{
         return singleReview; 
       }))
         .then(() =>{
-          res.render('session/session-details', {session: foundSession, user: req.user})
+          Session.find()
+            .then(allSessions =>{
+              res.render('session/session-details', {session: foundSession, user: req.user, sessions: allSessions})
+            })
+            .catch(err => next (err))
+          // res.render('session/session-details', {session: foundSession, user: req.user})
         })
         .catch(err => next (err))
     })

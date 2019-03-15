@@ -6,6 +6,11 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+/*GET gallery page */
+router.get('/gallery', (req, res, next) => {
+  res.render('gallery');
+});
+
 /*GET contact us page */
 router.get('/contact', (req, res, next) => {
   res.render('contact');
