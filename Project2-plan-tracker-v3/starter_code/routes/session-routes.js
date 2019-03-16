@@ -44,9 +44,8 @@ router.get('/session/:id/search', (req, res, next) =>{
   
 })
 
-
-// User update routine =====> POST /routine/5c7eb3ba952c9337f865d955/1
-router.post('/session/:id/1', ensureAuthenticated,(req, res) =>{
+// User update routine =====> POST 
+router.post('/session/:id/search', ensureAuthenticated,(req, res) =>{
     const {session, water, calories, sleep, exercise} = req.body;
     // console.log('the image file is: ', req.file)
     const newRoutine = {
@@ -86,109 +85,6 @@ router.get('/api/data', (req, res) =>{
       res.json(response.routines)
     })
 })
-
-
-// User update routine =====> POST /routine/5c7eb3ba952c9337f865d955/1
-router.post('/session/:id/2', ensureAuthenticated,(req, res) =>{
-    const {session, water, calories, sleep, exercise} = req.body;
-    // console.log('the image file is: ', req.file)
-    const newRoutine = {
-      session  : session,
-      calories : calories,
-      water    : water,
-      sleep    : sleep,
-      exercise : exercise,
-      member   : req.user._id
-    }
-    Routine.create(newRoutine)
-      .then((thenewRoutine) =>{
-        User.findById(req.user._id)
-          .then(foundUser =>{
-            foundUser.routines.push(thenewRoutine._id);
-            foundUser.save()
-              .then(() =>{
-                res.redirect(`/session/${req.params.id}/search?session=${thenewRoutine.session}`)
-              })
-              .catch((error)=> console.log( 'Error while user is adding routine', error))
-          })
-
-          .catch()
-    
-      })
-      .catch((error) =>{
-        console.log(error);
-      })
-});
-
-
-
-// User update routine =====> POST /routine/5c7eb3ba952c9337f865d955/1
-router.post('/session/:id/3', ensureAuthenticated,(req, res) =>{
-    const {session, water, calories, sleep, exercise} = req.body;
-    // console.log('the image file is: ', req.file)
-    const newRoutine = {
-      session  : session,
-      calories : calories,
-      water    : water,
-      sleep    : sleep,
-      exercise : exercise,
-      member   : req.user._id
-    }
-    Routine.create(newRoutine)
-      .then((thenewRoutine) =>{
-        User.findById(req.user._id)
-          .then(foundUser =>{
-            foundUser.routines.push(thenewRoutine._id);
-            foundUser.save()
-              .then(() =>{
-                res.redirect(`/session/${req.params.id}/search?session=${thenewRoutine.session}`)
-              })
-              .catch((error)=> console.log( 'Error while user is adding routine', error))
-          })
-
-          .catch()
-    
-      })
-      .catch((error) =>{
-        console.log(error);
-      })
-});
-
-
-
-// User update routine =====> POST /routine/5c7eb3ba952c9337f865d955/1
-router.post('/session/:id/4', ensureAuthenticated,(req, res) =>{
-    const {session, water, calories, sleep, exercise} = req.body;
-    // console.log('the image file is: ', req.file)
-    const newRoutine = {
-      session  : session,
-      calories : calories,
-      water    : water,
-      sleep    : sleep,
-      exercise : exercise,
-      member   : req.user._id
-    }
-    Routine.create(newRoutine)
-      .then((thenewRoutine) =>{
-        User.findById(req.user._id)
-          .then(foundUser =>{
-            foundUser.routines.push(thenewRoutine._id);
-            foundUser.save()
-              .then(() =>{
-                res.redirect(`/session/${req.params.id}/search?session=${thenewRoutine.session}`)
-              })
-              .catch((error)=> console.log( 'Error while user is adding routine', error))
-          })
-
-          .catch()
-    
-      })
-      .catch((error) =>{
-        console.log(error);
-      })
-});
-
-
 
 
 function ensureAuthenticated(req, res, next) {

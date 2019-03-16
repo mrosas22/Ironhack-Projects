@@ -11,11 +11,11 @@
   <p>{{session.education}}</p> <br>
   <h4>Tips: </h4>
   <p>{{session.tips}}</p> <br>
-
+{{!-- /session/{{this._id}}/search?session={{this.session}} --}}
   {{!-- {{> progressRoutine}} --}}
   {{#if showForm}}
   <section>
-    <form action="/session/{{session._id}}/{{session.session}}" method="post" id='routine-form' > 
+    <form action="/session/{{session._id}}/search?session={{session.session}}" method="post" id='routine-form' > 
       <fieldset><legend>Track Activity</legend>
         <label for="">Session</label>
         <input type="Number" name="session" class="input-form-session" value={{session.session}}><br>

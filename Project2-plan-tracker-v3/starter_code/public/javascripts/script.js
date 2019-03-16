@@ -61,7 +61,6 @@ document.getElementById("getButton").onclick = function(event){
         }
       });
     
-      //&&&&&&&&&&&&SECOND GRAPH&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
   });
 }
