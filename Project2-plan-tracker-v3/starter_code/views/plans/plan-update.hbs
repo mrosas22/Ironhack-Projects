@@ -1,14 +1,16 @@
-<h1>Update <b>Plan</b></h1>
-<form action="/plans/{{plan._id}}/update" method="post" enctype="multipart/form-data">
-	<label for="">Name:</label>
-	<input type="text" name="name" value="{{plan.name}}">
-	<label for="">Events:</label>
-	<input type="Number" name="events" value="{{plan.events}}">
-    <label for="">Description:</label>
-	<input type="text" name="description" value="{{plan.description}}">
-	{{!-- Add cover image for plan--}}
-	<label>Image</label>
-    <input type="file" name="imagePlan">
-	<button type="submit">UPDATE</button>
-</form>
-<a href="/plans">Return</a>
+
+<div class="users-wrapper">
+	<section>
+		<form action="/plans/{{plan._id}}/update" method="post" enctype="multipart/form-data">
+		<fieldset><legend>Update Plan</legend>
+			<label for="">Name:</label>
+			<input type="text" name="name" class="input-form-session" value="{{plan.name}}">
+    		<label for="">Description:</label>
+			<input type="text" name="description" class="input-form-session" value="{{plan.description}}">
+			{{!-- Add cover image for plan--}}
+			<label>Image</label>
+    		<input type="file" name="imagePlan" class="input-form-session">
+			<button type="submit">UPDATE</button>
+		</form>
+	</section>
+  </div>

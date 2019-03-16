@@ -19,7 +19,8 @@ router.post('/:sessionId/add-review', (req, res, next) => {
                 foundSession.feedbacks.push(theNewComment._id);
                 foundSession.save()
                     .then(() => {
-                        res.redirect(`/session/${foundSession._id}/${foundSession.session}`)
+                        console.log('The found session id is: ', foundSession)
+                        res.redirect(`/session/${foundSession._id}/search?session=${foundSession.session}`)
                     })
                     .catch(err => next(err));
             })
@@ -46,7 +47,8 @@ router.post('/:id/delete', (req, res, next) => {
                 }
                 foundSession.save()
                     .then(() => {
-                        res.redirect(`/session/${foundSession._id}/${foundSession.session}`)
+                        console.log('The found session id is: ', foundSession)
+                        res.redirect(`/session/${foundSession._id}/search?session=${foundSession.session}`)
                     })
                     .catch(err => next(err))
                     })

@@ -1,9 +1,46 @@
 {{#if admin}}
-  <div>
-    <h1>Welcome to {{title}}<span style="color: red;"> {{ admin.role}}</span></h1>  
-    <a href="/">Index</a><br>
-    <a href="/plans/add">Create Plan</a><br>
-    <a href="/plans/">Manage Plans</a><br>
-    <a href="/user/manage">Manage Users</a><br>
-  </div>
+<div class="mainbody container-fluid">
+    <div class="row">
+        <div style="padding-top:50px;"> </div>
+        <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="media">
+                        <div align="center">
+                            <img class="thumbnail img-responsive" src="{{admin.imageUrl}}" width="300px" height="300px">
+                        </div>
+                        <div class="media-body">
+                            <hr>
+                            <h3><strong>Bio</strong></h3>
+                            <p>{{admin.bio}}</p>
+                            <hr>
+                            <h3><strong>Gender</strong></h3>
+                            <p>{{admin.gender}}</p>
+                            <hr>
+                            <h3><strong>Age</strong></h3>
+                            <p>{{admin.age}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <span>
+                        <h1 class="panel-title pull-left" style="font-size:30px;">{{admin.fullName}} <small>{{admin.email}}</small> <i class="fa fa-check text-success" aria-hidden="true" data-toggle="tooltip" data-placement="bottom"></i></h1>
+                        
+                    </span>
+                    <br><br>
+                    <br><br><hr>
+                    <span class="pull-left">
+                        <a href="/plans/add" class="btn btn-link" style="text-decoration:none;"><i class="fa fa-fw fa-files-o" aria-hidden="true"></i> Create Plan</a>
+                        <a href="/plans/" class="btn btn-link" style="text-decoration:none;"><i class="fa fa-fw fa-picture-o" aria-hidden="true"></i> Manage Plans</a>
+                        <a href="/user/manage" class="btn btn-link" style="text-decoration:none;"><i class="fa fa-fw fa-users" aria-hidden="true"></i> Manage Users </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {{/if}}

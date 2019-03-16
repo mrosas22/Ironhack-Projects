@@ -1,8 +1,3 @@
-//Hide Form after submit
-// document.getElementById('routine-button').onclick = function(event){
-//   document.getElementById('routine-form').style.display = "none";
-// }
-
 const routineInfo  = axios.create({
   baseURL: 'http://localhost:3000/api/',
 }); 
@@ -11,13 +6,11 @@ const routineInfo  = axios.create({
 document.getElementById("getButton").onclick = function(event){
   routineInfo.get('data')
     .then(response => {
-
         // The following lane hides the form to create a new character when we are updating one
-        document.getElementById("routine-form").style.display = "none";
+        // document.getElementById("routine-form").style.display = "none";
         document.getElementById("routine-chart").style.display = "block";
         
         printTheChart(response.data);
-      
       
     })
     .catch( error => {

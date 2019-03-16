@@ -53,12 +53,14 @@ router.get('/:id/edit', (req, res, next) => {
 
 //POST /user/5c742b2ae09a3a265d1ea374/edit
 router.post('/:id/edit', (req, res, next) => {
-  const { fullName, email, plan } = req.body;
-  console.log('plan is: ', req.body.plan)
+  const { fullName, email, plan, gender, bio, age } = req.body;
   User.findById(req.params.id)
     .then((user) =>{
       user.fullName = fullName;
-      user.email = email;
+      user.email    = email;
+      user.gender   = gender;
+      user.bio      = bio;
+      user.age      = age;  
       const isIncluded = user.plan.indexOf(req.body.plan) > -1;
       // if(isIncluded){
       //   // req.flash()

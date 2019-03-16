@@ -1,22 +1,37 @@
-<h1>{{plan.name}}</h1>
-{{#if plan.imagePlan}}
-  <img src="{{plan.imagePlan}}" alt="Workout Motivation" width="300">
-{{else}}
-  <p>This plan doesn't have an image</p>
-{{/if}}
-<br>
-<h4>Description: </h4>
-<p>{{plan.description}}</p>
+<div class="session-page">
+    <div class="session-header">
+    <h1>{{plan.name}}</h1>
+    {{#if plan.imagePlan}}
+      <img src="{{plan.imagePlan}}" alt="Workout Motivation" width="300">
+    {{else}}
+      <p>This plan doesn't have an image</p>
+    {{/if}}
+  </div>
 
-{{#if user.isAdmin}}
-  <form action="/plans/{{plan._id}}/add-session">
-    <button type="submit">Create Session</button>
-  </form>
-{{/if}}
-{{#each plan.sessions}}
-  {{!-- <a href="/session/{{this._id}}/{{this.session}}">Session {{this.session}}</a><br> --}}
-  <a href='/session/{{this._id}}/search?session={{this.session}}'>Session {{this.session}}</a><br>
-{{/each}}
- 
+  <h4>Description: </h4>
+  <p>{{plan.description}}</p>
+
+  {{#if user.isAdmin}}
+    <form action="/plans/{{plan._id}}/add-session">
+      <button type="submit">Create Session</button>
+    </form>
+  {{/if}}
+  <div class="phase-week phase-0-week-0">
+      <h4 class="phase-week-header"><span class="week-title">Sessions:</span></h4>
+   </div>
+   <div class="b-wrokout-program-phases">
+     <ul class="phase-week-days phase-0-week-0-day list-reset--total">
+        {{#each plan.sessions}}
+          <li class="phase-week-day phase-0-week-0-day-0">
+            <strong class="day-title">Session {{this.session}}</strong>
+            <span class="day-subtitle">Full Body</span>
+            <span class="day-link"><a href='/session/{{this._id}}/search?session={{this.session}}' class="active">Start</a></span>
+          </li>
+    {{/each}}
+     </ul>
+   </div>
+</div>
+
+
 
 

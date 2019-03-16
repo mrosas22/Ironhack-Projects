@@ -1,15 +1,26 @@
-<h1>Edit user</h1>
-<form id="" action="/user/{{user._id}}/edit" method="POST">
-  <label for="fullName">Full Name:</label><br>
-  <input type="text" name="fullName" value="{{user.fullName}}">
-  <label for="email">E-mail:</label><br>
-  <input type="text" name="email" value="{{user.email}}">
-  <label for="memberPlan">Plans</label>
-  <select name="plan" id="memberPlan">
-    {{#each plans}}
-      <option value="{{this._id}}">{{this.name}}</option>
-    {{/each}}
-  </select>
-  <button type="submit">SAVE</button> 
-  <a href="/user/manage">Return</a>
-</form>
+<section>
+    <form action="/user/{{user._id}}/edit" method="post"> 
+      <fieldset><legend>Edit User</legend>
+        <label for="fullName">Full Name:</label>
+        <input type="text" name="fullName" class="input-form-session" width="80" value="{{user.fullName}}">
+
+        <label for="email">E-mail:</label>
+        <input type="text" name="email" class="input-form-session" value="{{user.email}}">
+
+        <label for="">Gender:</label>
+        <input type="text" name="gender" class="input-form-session" value="{{user.gender}}">
+        <label for="">Bio:</label>
+        <textarea name="bio" class="input-form-session" cols="30" rows="10"></textarea><br>
+
+        <label for="">Age:</label>
+        <input type="number" name="age" class="input-form-session" value="{{user.age}}">
+
+        <label for="memberPlan">Plans</label>
+        <select name="plan" id="memberPlan">
+          {{#each plans}}
+            <option value="{{this._id}}">{{this.name}}</option>
+          {{/each}}
+        </select><br>
+        <button type="submit">SAVE</button> 
+    </form>
+  </section>

@@ -20,6 +20,7 @@ body {
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
+  padding: 0 10px;
 }
 .offcanvas #page {
   overflow: hidden;
@@ -474,7 +475,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .user-frame {
-  width: 90%;
+  // width: 90%;
   padding: 3em;
   -webkit-box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.13);
   -moz-box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.13);
@@ -604,7 +605,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-content-section,
 #fh5co-contact,
 #fh5co-footer {
-  padding: 7em 0;
+  padding: 3em 0;
   clear: both;
 }
 @media screen and (max-width: 768px) {
@@ -1265,21 +1266,6 @@ input[type="text"] {
   }
 }
 
-.btn {
-  margin-right: 4px;
-  margin-bottom: 4px;
-  font-family: "Inconsolata", Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  border-radius: 30px;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-  padding: 8px 20px;
-}
 .btn.btn-md {
   padding: 8px 20px !important;
 }
@@ -2082,7 +2068,7 @@ img {
 }
 
 .img-responsive {
-  display: block;
+  // display: block;
   max-width: 100%;
   height: auto;
 }
@@ -3080,9 +3066,9 @@ pre code {
     width: 33.33333%;
   }
 
-  .col-md-5 {
-    width: 41.66667%;
-  }
+  // .col-md-5 {
+  //   width: 41.66667%;
+  // }
 
   .col-md-6 {
     width: 50%;
@@ -3168,9 +3154,9 @@ pre code {
     left: auto;
   }
 
-  .col-md-push-1 {
-    left: 8.33333%;
-  }
+  // .col-md-push-1 {
+  //   left: 8.33333%;
+  // }
 
   .col-md-push-2 {
     left: 16.66667%;
@@ -3714,7 +3700,7 @@ table th[class*="col-"] {
 }
 
 fieldset {
-  padding: 0;
+  padding-left: 50px;
   margin: 0;
   border: 0;
   min-width: 0;
@@ -4417,11 +4403,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
   background-color: #fff;
 }
 
-.btn-success {
-  color: #fff;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
-}
+
 .btn-success:focus, .btn-success.focus {
   color: #fff;
   background-color: #449d44;
@@ -11859,3 +11841,190 @@ Copyright (c) 2015 Daniel Eden
       max-width: 100%;
     }
   }
+
+/* ====================================================================================================================
+* PLAN DETAILS
+* ====================================================================================================================*/
+// @media (min-width: 1024px){
+// .b-wrokout-program-phases {
+//     padding: 0 0 0 67px;
+// }
+.b-wrokout-program-phases {
+  clear: both;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+.phase-week {
+  margin: 0 0 7px;
+}
+.phase-week-header {
+  color: #000;
+  margin: 0 0 14px;
+}
+.phase-week-days {
+  overflow: hidden;
+}
+.list-reset--total {
+  width: 50%;
+  padding: 0;
+  margin: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+.phase-week-day {
+  font-family: Polaris,Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 7px 10px 10px;
+  margin: 10px 10px;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+@media screen and (min-width: 1024px){
+  .phase-week-day {
+    width: 100%;
+    float: left;
+    height: 149px;
+    position: relative;
+  }
+}
+.phase-week-day .day-title {
+  font-size: 20px;
+  font-size: 1.25rem;
+  font-weight: 900;
+  position: relative;
+  margin: 0 0 20px;
+  line-height: 23px;
+}
+@media screen and (min-width: 1024px){
+  .phase-week-day .day-subtitle, .phase-week-day .day-title {
+    float: none;
+    text-align: center;
+  }
+}
+.phase-week-day .day-subtitle, .phase-week-day .day-title {
+  display: block;
+  float: left;
+}
+.phase-week-day .day-subtitle {
+  font-size: 10px;
+  clear: left;
+  line-height: 14px;
+}
+@media screen and (min-width: 1024px){
+  .phase-week-day .day-subtitle, .phase-week-day .day-title {
+    float: none;
+    text-align: center;
+  }
+}
+.phase-week-day .day-link {
+  float: right;
+  margin: -30px 0 0;
+}
+@media screen and (min-width: 1024px){
+  .phase-week-day .day-link {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin: 0 0 0 -28px;
+  }
+}
+
+.btn-default, .node-event_news-block .link-all, .node-event_photos-block .link-all, .node-event_videos-block .link-all, .phase-week-day .day-link a {
+  border-radius: 5px;
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-family: Polaris,Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 12px;
+  height: 34px;
+  line-height: 34px;
+  padding: 0 2em;
+  color: #fff;
+  border: 0;
+  background: #000;
+  text-transform: uppercase;
+}
+.btn-yellow, .phase-week-day .day-link a {
+  background: #fff200;
+  color: #000;
+}
+.phase-week-day .day-link a {
+  font-size: 11px;
+  font-size: .688rem;
+  height: 20px;
+  line-height: 20px;
+  width: 56px;
+  padding: 0 0 0 5px;
+  position: relative;
+  text-align: center;
+}
+/* ====================================================================================================================
+* SESSION DETAILS
+* ====================================================================================================================*/
+
+.session-page{
+  padding-left: 30px;
+}
+.input-form-session{
+  display: block;
+  width: 230px;
+}
+/* ====================================================================================================================
+  * Feedback
+  * ====================================================================================================================*/
+  .profile-activity {
+    padding: 10px 4px;
+    position: relative;
+    border-left: 1px dotted #FFF;
+    border-right: 1px dotted #FFF; }
+  
+  .profile-activity:first-child {
+    border-top: 1px dotted transparent; }
+  
+  .profile-activity:first-child:hover {
+    border-top-color: #D0D8E0; }
+  
+  .profile-activity:hover {
+    background-color: #F4F9FD;
+    border-left: 1px dotted #D0D8E0;
+    border-right: 1px dotted #D0D8E0; }
+  
+  .profile-activity img {
+    border: 2px solid #C9D6E5;
+    border-radius: 100%;
+    max-width: 40px;
+    margin-right: 10px;
+    margin-left: 0;
+    box-shadow: none; }
+
+  .tips-row{
+    margin-left: -15px;
+    margin-right: -15px;
+
+  }
+  .session-header{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .session-img{
+    width: 500px;
+  }
+#routine-chart{
+  display: none;
+}
+
+.users-wrapper{
+  padding-left: 50px;
+}
