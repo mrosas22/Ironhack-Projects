@@ -1,0 +1,347 @@
+.mainLogo {
+  margin-bottom: 30px;
+}
+
+.logout{
+  width: 20vw;
+  position: fixed;
+  left: 40vw;
+  top: 10vh;
+}
+
+.message{
+  width: 20vw;
+  position: fixed;
+  left: 40vw;
+  top: 10vh;
+}
+
+.navlogo:hover{
+  text-decoration: none;
+}
+
+button:hover {
+  cursor:pointer;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.mastfoot {
+  width: 100vw;
+  background-color: #011319;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.smallFoot {
+  display: none;
+}
+
+.mastfoot > div {
+  padding-top: 2vh;
+}
+
+.indexDiv {
+  margin-top: 20vh;
+}
+
+.postsMain {
+  background-color: #033F53;
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  box-shadow: 0 0 5rem rgba(0, 0, 0, .5);
+  margin-top: 2vh;
+  padding-top: 2vh;
+  border-radius: 10px;
+  padding-bottom: 50px;
+}
+
+.postInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.postInfo > .username {
+  display: flex;
+  font-size: 14px;
+  margin-left: 1vw;
+}
+
+.username {
+  max-width: 60%;
+}
+
+.username > h3 {
+ font-size: 20px;
+}
+
+.username > p {
+  color: #bbb;
+}
+
+.postProfilePic { 
+  width: 2vw;
+  height: 3vh;
+  border-radius: 50%;
+  border: 0.5px solid #011319;
+  box-shadow: 0px 0px 1px 1px rgba(30,30,30,0.5);
+  background-color: #fff;
+}
+
+.postInfo > .firstName {
+  margin-left: 0px;
+}
+.postInfo > .lastName {
+  margin-left: 0px;
+}
+
+.postInfo > .date {
+  font-size: 12px;
+  width: 6vw
+}
+
+.eachPost {
+  border-bottom: solid 5px #011319;
+  border-radius: 10px;
+}
+
+#postAddImg {
+  display: flex;
+  flex-direction: column;
+}
+
+#postAddImg input {
+  margin-left: 4vw; 
+}
+
+.postImage {
+  width: 30%;
+  max-width: 300px;
+  height: 30%;
+  max-height: 300px;
+  border-radius: 5%;
+  border: 5px solid #011319;
+  box-shadow: 0px 0px 5px 5px rgba(30,30,30,0.5);
+  background-color: #fff;
+}
+
+.postContent > p{
+  margin: 3%
+}
+
+.postModify {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.postModify button{
+  margin-right: 10px;
+  background-color: #012936;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.postModify button:hover{
+  background-color: #fff;
+  color: #012936;
+}
+
+.commentButton {
+  padding: 0 1%;
+  background-color: #6c757d;
+  color: #012936;
+  border: none;
+  margin: 3% auto;
+}
+
+.commentButton:hover {
+  background-color: #fff;
+  color: #012936;
+  border: none;
+}
+
+.commentTitle {
+  background-color: #012936;
+  color: #fff;
+}
+
+.commentBody {
+  background-color: #06526B;
+  text-align: left;
+}
+
+.commentFrame {
+  border-bottom: 2px solid #011319;
+  border-radius: 2px;
+}
+
+.commentTop {
+  display: flex;
+  justify-content: space-between
+}
+
+.commentTop > span {
+  font-size: 1.5vh;
+}
+
+.commentFrame > div > h1 {
+  font-size: 20px;
+}
+
+.commentFrame > p {
+  font-size: 15px;
+  text-align: center;
+}
+
+.commentModify {
+  display: flex;
+  justify-content: center;
+}
+
+.commentModify button, .commentModify a{
+  margin-right: 10px;
+  background-color: #012936;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.commentModify a{
+  padding: 0 2%;
+}
+
+.commentModify button:hover, .commentModify a:hover{
+  background-color: #fff;
+  color: #012936;
+  text-decoration: none;
+}
+
+.fa-heart {
+  margin-right: 0.5vw;
+}
+
+.commentFooter {
+  background-color: #012936;
+}
+
+#profilePic {
+  width: 30%;
+  max-width: 300px;
+  height: 30%;
+  max-height: 300px;
+  border-radius: 50%;
+  border: 5px solid #011319;
+  box-shadow: 0px 0px 5px 5px rgba(30,30,30,0.5);
+  background-color: #fff;
+}
+
+#profileInfo{
+  padding-top: 3vh;
+  text-align: center;
+}
+
+#profileInfo h1 {
+  color: #8c959d;
+  font-size: 5vh;
+}
+
+#profileInfo h2 {
+  padding-top: 1vh;
+  margin-left: 1vw; 
+  font-size: 4vh;
+}
+
+.profileItems {
+  display: flex;
+  justify-content: center;
+  margin-top: 1vh;
+}
+
+.editProf {
+  margin-top: 2vh;
+}
+
+#formEdit {
+  margin-top: 1vh; 
+  width: 25vw;
+}
+
+.postLabel {
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+  font-size: 3vh;
+}
+
+img {
+  image-orientation: from-image;
+}
+
+.form-signin {
+  margin: auto;
+}
+
+.btn-secondary {
+  margin-top: 1vh;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .logout{
+    left: 6vw;
+  }
+  
+  .message{
+    left: 6vw;
+  }
+
+  .postProfilePic { 
+    width: 7vw;
+    height: 4vh;
+  }
+
+  .username {
+    max-width: 90vw;
+  }
+
+  .logout{
+    width: 85vw;
+  }
+  
+  .message{
+    width: 85vw;
+  }
+
+  #formEdit { 
+    width: 90vw;
+  }
+  
+  .indexDiv{
+    margin-top: 5vh;
+  }
+
+  .postInfo{
+    justify-content: center;
+  }
+
+  .firstName {
+    display: none
+  }
+  .lastName {
+    display: none
+  }
+  
+  .postInfo > .date {
+    display: none
+  }
+
+  .bigFoot {
+    display: none;
+  }
+
+  .smallFoot {
+    display: block;
+  }
+}

@@ -1,0 +1,75 @@
+
+<div class="postsMain">
+  {{#each post}}
+  <div class="eachPost">
+    <div class="postInfo">
+      <div class="username">
+        <img class="postProfilePic" src="{{this.user.image}}" alt="">
+        <h3>{{this.title}}</h3>
+        <p>@{{this.user.username}}</p>
+      </div>
+      <div class="name">
+        <span class="firstName">{{this.user.firstName}}</span>
+        <span class="lastName">{{this.user.lastName}}</span>
+      </div>
+      <span class="date">{{this.date}}</span>
+    </div>
+    <div class="postContent">
+      {{#if this.image}}
+      <img class="postImage" src="{{this.image}}" alt="">
+      {{/if}}
+      <p>{{this.content}}</p>
+      {{#if this.currentUser}}
+      <div class="postModify">
+        <form action="/post/{{this._id}}/edit" method="GET"><button>Edit</button></form>
+        <form action="/post/{{this._id}}/delete" method="POST"><button>Delete</button></form>
+      </div>
+      {{/if}}
+    </div>
+
+    {{!-- <a href="/post/{{this._id}}/details">Show Post</a> --}}
+  
+ 
+<!-- Button trigger modal -->
+<div>
+  <button type="button" class="btn btn-primary commentButton" data-toggle="modal" data-target="#modal{{this._id}}">
+    Comments: {{this.comments.length}}
+  </button>
+  <button data-id="{{this._id}}" class="btn btn-primary commentButton postLike"><i class="fa fa-heart" aria-hidden="true"></i><span>{{this.likes.length}}</span></button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modal{{this._id}}" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header commentTitle">
+        <h5 class="modal-title" id="modalTitle">{{this.title}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body commentBody">
+  {{#each this.comments}}
+        <div class="commentFrame">
+          <div class="commentTop"><h1>@{{this.user}}</h1><span>{{this.date}}</span></div>
+          <p>{{this.content}}</p>
+          <div class="commentModify">
+          {{#if this.currentUser}}
+          <a href="/comment/{{this._id}}/edit">Edit</a>
+          <form action="/comment/{{this._id}}/delete" method="POST"><button>Delete</button></form>
+          {{/if}}
+          </div>
+          <button data-od="{{this._id}}" class="btn btn-primary commentButton commentLike"><i class="fa fa-heart" aria-hidden="true"></i><span class="commentLikes">{{this.likes.length}}</span></button>
+        </div>
+  {{/each}}
+      </div>
+      <div class="modal-footer commentFooter">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="/comment/{{this._id}}/new" class="btn btn-secondary">New Comment</a>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+{{/each}}
+
+</div>
