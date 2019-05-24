@@ -1,22 +1,19 @@
 import React from "react";
 
 class Carousel extends React.Component{
-    constructor(props, context) {
-        super(props, context);
-        state = {
-            photos:[],
-            active: 0  //0 index
-        }
+    state = {
+        photos:[],
+        active: 0  //0 index
     }
     static getDerivedStateFromProps({media}) {
         let photos = [];
-        if (media&& media.photos && media.photos.photo){
-            photos = media.photos.photo.filter(photo => photo["@size"] === 'pn')
+        if (media && media.photos && media.photos.photo){
+            photos = media.photos.photo.filter(photo => photo["@size"] === "pn")
         }
         return { photos };
     }
 
-    handleIndexClick (event){
+    handleIndexClick = event =>{
         this.setState({
             active: +event.target.dataset.index
         });
@@ -40,7 +37,7 @@ class Carousel extends React.Component{
                        key={photo.value}
                        data-index={index}
                        src={photo.value}
-                       classNames={index === active ? "active": ""}
+                       className={index === active ? "active": ""}
                        //        IF  ..conditional THEN  else
                        alt="animal thumbnail"
                     /> 

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Message, Button, Header, Image, Modal } from 'semantic-ui-react';
 import { Link } from '@reach/router';
@@ -28,5 +29,4 @@ const Messages = () => (
   </Modal>
   </Message>
 );
-
 export default Messages;
