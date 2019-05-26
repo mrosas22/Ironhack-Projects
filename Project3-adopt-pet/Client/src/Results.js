@@ -3,8 +3,6 @@ import pf from 'petfinder-client';
 import  Pet  from './Pet';
 
 
-
-
 //after run npm intall petfinder-client, import pf from "petfinder-client"
 //under imports
 const petfinder = pf({

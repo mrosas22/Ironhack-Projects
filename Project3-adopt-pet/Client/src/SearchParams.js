@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import pf, { ANIMALS } from "petfinder-client";
 
 const petfinder = pf({
@@ -7,28 +7,24 @@ const petfinder = pf({
   });
 
 class SearchParams extends React.Component {
-    constructor(props, context) {
-        super(props, context);
-        state = {
-            location: "Seatle, WA",
-            animal: "",
-            breed: ""
-          };
-    }
-  
-  handleLocationChange (event) {
+  state = {
+    location: "Seatle, WA",
+    animal: "",
+    breed: ""
+  };
+  handleLocationChange = event => {
       this.setState({
           location: event.target.value
       });
   };
-  handleAnimalChange (event) {
+  handleAnimalChange = event =>{
       this.setState({
           animal : event.target.value,
           breed:""    //reset the breed because I don't wanna search for a cat husky, despite how awesome that sounds
       }, this.getBreeds);
       
   };
-  handleBreedChange (event) {
+  handleBreedChange = event =>{
       this.setState({
           breed: event.target.value
       })
